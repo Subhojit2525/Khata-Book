@@ -1,0 +1,237 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* THEME VARIABLES */
+:root {
+    --bg: #0d0d0d;
+    --text: #ffffff;
+    --card: rgb(22, 36, 32);
+    --glass: rgba(81, 92, 62, 0.65);
+    --glass2: rgba(0, 0, 0, 0.8);
+    --blur: 20px;
+
+    --danger: #ff4d4d;
+}
+
+/* BODY */
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: Arial;
+    height: 100vh;
+}
+
+/* NAVBAR */
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    backdrop-filter: blur(var(--blur));
+    background: var(--glass);
+}
+
+nav .right {
+    display: flex;
+    gap: 10px;
+}
+
+nav .left {
+    font-size: xx-large;
+    font-weight: 700;
+    color: #0283ce;
+}
+
+/* ADD TASK BUTTON */
+#toggle-modal {
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #ff5f6d, #ffc371);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+#toggle-modal:hover {
+    transform: scale(1.07);
+    background: linear-gradient(45deg, #ffc371, #ff5f6d);
+    box-shadow: 0 4px 15px rgba(255, 99, 71, 0.5);
+}
+
+#toggle-modal:active {
+    transform: scale(0.95);
+}
+
+/* BOARD */
+.board {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    height: calc(100vh - 80px);
+}
+
+.task-column {
+    flex: 1;
+    background: var(--glass);
+    backdrop-filter: blur(var(--blur));
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #5fff6c94, #cf6338);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+/* TASK CARD */
+.task {
+    background: var(--card);
+    padding: 12px;
+    border-radius: 10px;
+    cursor: grab;
+    transition: 0.3s;
+}
+
+.task:hover {
+    transform: scale(1.03);
+}
+
+/* DELETE BUTTON INSIDE TASK CARD */
+.task button {
+    margin-top: 10px;
+    padding: 6px 14px;
+    background: linear-gradient(45deg, #ff5f6d, #ff1e4a);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.task button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(255, 80, 100, 0.6);
+}
+
+.task button:active {
+    transform: scale(0.9);
+}
+
+
+.modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    transition: 0.3s ease;
+}
+
+.modal.active {
+    display: flex;
+}
+
+/* BG OVERLAY */
+.modal .bg {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(4px);
+}
+
+/* POPUP BOX */
+.modal .center {
+    position: relative;
+    z-index: 10;
+    width: 380px;
+    padding: 25px;
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(15px);
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    animation: popup 0.35s ease;
+}
+
+/* INPUTS */
+#task-title-input,
+#task-desc-input {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+    color: white;
+    font-size: 15px;
+    backdrop-filter: blur(10px);
+}
+
+#task-desc-input {
+    height: 100px;
+    resize: none;
+}
+
+/* ADD TASK BUTTON (INSIDE MODAL) */
+#add-new-task {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #fff;
+
+    background: linear-gradient(45deg, #ff5f6d, #ff9966, #ff5f6d);
+    background-size: 200%;
+    transition: 0.4s ease;
+}
+
+#add-new-task:hover {
+    background-position: right;
+    transform: scale(1.05);
+    box-shadow: 0 0 12px rgba(255, 99, 71, 0.6);
+}
+
+#add-new-task:active {
+    transform: scale(0.95);
+}
+
+/* POPUP ANIMATION */
+@keyframes popup {
+    from {
+        transform: scale(0.75);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
