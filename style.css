@@ -235,3 +235,100 @@ nav .left {
         opacity: 1;
     }
 }
+
+
+
+/* 🔥 MOBILE RESPONSIVE UI */
+@media (max-width: 768px) {
+
+    /* NAVBAR MOBILE */
+    nav {
+        padding: 15px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    nav .left {
+        font-size: 26px;
+        display: flex;
+        padding: 8px 25px;
+
+    }
+
+    #toggle-modal {
+        padding: 8px 14px;
+        font-size: 14px;
+        border-radius: 10px;
+
+    }
+
+    /* BOARD MOBILE — SINGLE COLUMN VIEW */
+    .board {
+        flex-direction: column;
+        padding: 10px;
+        gap: 10px;
+        height: auto;
+
+    }
+
+    .task-column {
+        min-height: 200px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.4);
+    }
+
+
+    .heading {
+        padding: 12px 15px;
+        font-size: 16px;
+    }
+
+    */
+
+    /* BOARD MOBILE — SINGLE COLUMN VIEW
+
+
+
+    /* TASK CARD MOBILE */
+    .task {
+        padding: 15px;
+        border-radius: 12px;
+        font-size: 14px;
+    }
+
+    .task button {
+        padding: 8px 12px;
+        font-size: 14px;
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    /* MOBILE MODAL — FULL SCREEN BOTTOM SHEET */
+    .modal .center {
+        width: 100%;
+        border-radius: 20px 20px 0 0;
+        padding: 20px;
+        bottom: 0;
+        position: absolute;
+    }
+
+    .modal .bg {
+        backdrop-filter: blur(10px);
+    }
+
+    #task-title-input,
+    #task-desc-input {
+        font-size: 14px;
+        padding: 12px;
+    }
+
+    #add-new-task {
+        padding: 14px;
+        border-radius: 12px;
+        font-size: 18px;
+        width: 100%;
+    }
+}
